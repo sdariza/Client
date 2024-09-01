@@ -3,7 +3,7 @@ CC = gcc
 CFLAGS = -Wall
 CLIENT_TARGET = client
 
-# source files
+# Source files
 CLIENT_SRC = src/client.c
 
 # Compile both by default
@@ -13,9 +13,10 @@ all: $(CLIENT_TARGET)
 $(CLIENT_TARGET): $(CLIENT_SRC)
 	$(CC) $(CFLAGS) -o $(CLIENT_TARGET) $(CLIENT_SRC)
 
-# Run the client
+# Run the client with parameters
 run_client: $(CLIENT_TARGET)
-	./$(CLIENT_TARGET)
+	@echo "Running client with IP and port as parameters."
+	./$(CLIENT_TARGET) $(IP) $(PORT)
 
 # Clean
 clean:
